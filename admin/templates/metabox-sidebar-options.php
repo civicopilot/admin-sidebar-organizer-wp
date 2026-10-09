@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 		?></p>
 
 <p><label for="aso-wp-dashboard-flyout">
-	<input type="checkbox" id="aso-wp-dashboard-flyout" name="dashboard_flyout" value="1" <?php checked( $dashboard_flyout ); ?> />
+	<input type="checkbox" id="aso-wp-dashboard-flyout" name="wp_dashboard_flyout_items" value="1" <?php checked( $wp_dashboard_flyout_items ); ?> />
 	<?php esc_html_e( 'Use a flyout for the WordPress Dashboard submenu', 'admin-sidebar-organizer-wp' ); ?>
 </label></p>
 <p class="description"><?php
@@ -25,3 +25,17 @@ defined( 'ABSPATH' ) || exit;
 		esc_html_e( 'This setting applies to all sites in this network.', 'admin-sidebar-organizer-wp' );
 	}
 ?></p>
+
+<?php if ( $civicrm_active ) : ?>
+<p><label for="aso-civicrm-dashboard-flyout">
+	<input type="checkbox" id="aso-civicrm-dashboard-flyout" name="civicrm_dashboard_flyout_items" value="1" <?php checked( $civicrm_dashboard_flyout_items ); ?> />
+	<?php esc_html_e( 'Use a flyout for the CiviCRM submenu', 'admin-sidebar-organizer-wp' ); ?>
+</label></p>
+<p class="description"><?php
+	esc_html_e( 'Experimental: show CiviCRM and its integration links in a flyout instead of expanding them inline while viewing CiviCRM pages.', 'admin-sidebar-organizer-wp' );
+	if ( is_multisite() ) {
+		echo ' ';
+		esc_html_e( 'This setting applies to all sites in this network.', 'admin-sidebar-organizer-wp' );
+	}
+?></p>
+<?php endif; ?>

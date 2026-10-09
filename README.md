@@ -16,7 +16,7 @@ Organize the WordPress admin sidebar into configurable, collapsible sections whi
 - Preserve the full native icon rail when the sidebar is collapsed.
 - Keep WordPress's native collapse control at the bottom of the menu; pin the expand control to the viewport bottom in collapsed desktop mode.
 - Move WordPress's existing command-palette trigger into a **Go to…** item when available. 
-- Optionally keep the Dashboard submenu as a flyout.
+- Optionally keep the WordPress Dashboard and CiviCRM submenus as flyouts.
 
 ## Installation
 

@@ -53,7 +53,8 @@ class ASO_Admin {
 	 * @since    0.1-alpha
 	 */
 	public function enqueue_styles() {
-		if ( is_blog_admin() && Admin_Sidebar_Organizer_Wp_Settings::dashboard_flyout() ) {
+		if ( is_blog_admin() && ( Admin_Sidebar_Organizer_Wp_Settings::wp_dashboard_flyout_items() ||
+			( function_exists( 'civi_wp' ) && Admin_Sidebar_Organizer_Wp_Settings::civicrm_dashboard_flyout_items() ) ) ) {
 			wp_enqueue_style( 'aso-wp-dashboard-flyout', plugin_dir_url( __FILE__ ) . 'css/dashboard-flyout.css', array(), $this->version );
 		}
 		if ( ! Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ) {
@@ -115,8 +116,11 @@ class ASO_Admin {
 		if ( Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ) {
 			$classes .= ' aso-sidebar-enabled';
 		}
-		if ( is_blog_admin() && Admin_Sidebar_Organizer_Wp_Settings::dashboard_flyout() ) {
-			$classes .= ' aso-dashboard-flyout';
+		if ( is_blog_admin() && Admin_Sidebar_Organizer_Wp_Settings::wp_dashboard_flyout_items() ) {
+			$classes .= ' aso-wp-dashboard-flyout';
+		}
+		if ( is_blog_admin() && function_exists( 'civi_wp' ) && Admin_Sidebar_Organizer_Wp_Settings::civicrm_dashboard_flyout_items() ) {
+			$classes .= ' aso-civicrm-dashboard-flyout';
 		}
 		return $classes;
 	}

@@ -1,6 +1,7 @@
 /* Opt-in presentation only; native menu markup, classes and handlers remain. */
 @media (min-width: 961px) {
-	body.aso-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu > .wp-submenu {
+	body.aso-wp-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu > .wp-submenu,
+	body.aso-civicrm-dashboard-flyout:not(.folded) #adminmenu #toplevel_page_CiviCRM.wp-has-current-submenu > .wp-submenu {
 		position: absolute;
 		/* common.js reads top to decide whether to open and adjust the flyout. */
 		top: -1000em;
@@ -15,10 +16,14 @@
 		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 	}
 
-	body.aso-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu.opensub > .wp-submenu,
-	body.aso-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu:focus-within > .wp-submenu,
-	body.aso-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu > .wp-submenu.sub-open,
-	body.no-js.aso-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu:hover > .wp-submenu {
+	body.aso-wp-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu.opensub > .wp-submenu,
+	body.aso-wp-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu:focus-within > .wp-submenu,
+	body.aso-wp-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu > .wp-submenu.sub-open,
+	body.no-js.aso-wp-dashboard-flyout:not(.folded) #adminmenu #menu-dashboard.wp-has-current-submenu:hover > .wp-submenu,
+	body.aso-civicrm-dashboard-flyout:not(.folded) #adminmenu #toplevel_page_CiviCRM.wp-has-current-submenu.opensub > .wp-submenu,
+	body.aso-civicrm-dashboard-flyout:not(.folded) #adminmenu #toplevel_page_CiviCRM.wp-has-current-submenu:focus-within > .wp-submenu,
+	body.aso-civicrm-dashboard-flyout:not(.folded) #adminmenu #toplevel_page_CiviCRM.wp-has-current-submenu > .wp-submenu.sub-open,
+	body.no-js.aso-civicrm-dashboard-flyout:not(.folded) #adminmenu #toplevel_page_CiviCRM.wp-has-current-submenu:hover > .wp-submenu {
 		top: 0;
 	}
 }
