@@ -4,6 +4,8 @@
 
 Organize the WordPress admin sidebar into configurable, collapsible sections while preserving native menu items and user permissions. Configure once for an installation using a small MU-plugin. Works on multisite.
 
+![WordPress admin sidebar with collapsible sections](assets/images/admin-sidebar-organizer-wp.png)
+
 ## Features
 
 - Group menu items into named sections with Dashicons.
