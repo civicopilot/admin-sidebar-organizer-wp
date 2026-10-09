@@ -13,3 +13,15 @@ defined( 'ABSPATH' ) || exit;
 				esc_html_e( 'This setting applies to all sites in this network.', 'admin-sidebar-organizer-wp' );
 			}
 		?></p>
+
+<p><label for="aso-wp-dashboard-flyout">
+	<input type="checkbox" id="aso-wp-dashboard-flyout" name="dashboard_flyout" value="1" <?php checked( $dashboard_flyout ); ?> />
+	<?php esc_html_e( 'Use a flyout for the WordPress Dashboard submenu', 'admin-sidebar-organizer-wp' ); ?>
+</label></p>
+<p class="description"><?php
+	esc_html_e( 'Experimental: show Home, Updates, and other Dashboard links in a flyout instead of expanding them inline while viewing the main WordPress Dashboard.', 'admin-sidebar-organizer-wp' );
+	if ( is_multisite() ) {
+		echo ' ';
+		esc_html_e( 'This setting applies to all sites in this network.', 'admin-sidebar-organizer-wp' );
+	}
+?></p>

@@ -53,6 +53,9 @@ class ASO_Admin {
 	 * @since    0.1-alpha
 	 */
 	public function enqueue_styles() {
+		if ( is_blog_admin() && Admin_Sidebar_Organizer_Wp_Settings::dashboard_flyout() ) {
+			wp_enqueue_style( 'aso-wp-dashboard-flyout', plugin_dir_url( __FILE__ ) . 'css/dashboard-flyout.css', array(), $this->version );
+		}
 		if ( ! Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ) {
 			return;
 		}
@@ -109,6 +112,12 @@ class ASO_Admin {
 
 	/** Scope portable colors so network-specific schemes can override them. */
 	public function body_class( $classes ) {
-		return Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ? $classes . ' aso-sidebar-enabled' : $classes;
+		if ( Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ) {
+			$classes .= ' aso-sidebar-enabled';
+		}
+		if ( is_blog_admin() && Admin_Sidebar_Organizer_Wp_Settings::dashboard_flyout() ) {
+			$classes .= ' aso-dashboard-flyout';
+		}
+		return $classes;
 	}
 }

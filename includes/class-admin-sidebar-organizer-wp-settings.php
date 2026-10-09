@@ -22,6 +22,12 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 		return ! is_array( $settings ) || ! array_key_exists( 'move_command_palette', $settings ) || ! empty( $settings['move_command_palette'] );
 	}
 
+	/** Opt-in Dashboard flyout presentation; native behavior is the default. */
+	public static function dashboard_flyout() {
+		$settings = is_multisite() ? get_network_option( null, self::OPTION, array() ) : get_option( self::OPTION, array() );
+		return is_array( $settings ) && ! empty( $settings['dashboard_flyout'] );
+	}
+
 	/** Match network/site settings permissions without allowing subsite overrides. */
 	public static function can_manage() {
 		return is_multisite()
@@ -66,6 +72,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 			$settings = is_multisite() ? get_network_option( null, self::OPTION, array() ) : get_option( self::OPTION, array() );
 			$settings = is_array( $settings ) ? $settings : array();
 			$settings['move_command_palette'] = $enabled;
+			$settings['dashboard_flyout'] = isset( $_POST['dashboard_flyout'] ) && '1' === wp_unslash( $_POST['dashboard_flyout'] );
 			if ( is_multisite() ) {
 				update_network_option( null, self::OPTION, $settings );
 			} else {
@@ -101,6 +108,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 	/** Prepare sidebar options for their presentation template. */
 	public function render_options() {
 		$move_command_palette = self::move_command_palette();
+		$dashboard_flyout = self::dashboard_flyout();
 		include dirname( __DIR__ ) . '/admin/templates/metabox-sidebar-options.php';
 	}
 
