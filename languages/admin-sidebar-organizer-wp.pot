@@ -1,0 +1,122 @@
+# Copyright (C) 2026 Andy Burns
+# This file is distributed under the GPL-3.0-only.
+msgid ""
+msgstr ""
+"Project-Id-Version: Admin Sidebar Organizer for WP 0.1-alpha\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/admin-sidebar-organizer-wp\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-09T11:58:06-04:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: admin-sidebar-organizer-wp\n"
+
+#. Plugin Name of the plugin
+msgid "Admin Sidebar Organizer for WP"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/civicopilot/admin-sidebar-organizer-wp"
+msgstr ""
+
+#. Description of the plugin
+msgid "Organizes the WordPress admin sidebar into configurable, collapsible sections. Supports centralized multisite configuration."
+msgstr ""
+
+#. Author of the plugin
+msgid "Andy Burns"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://civicopilot.com/"
+msgstr ""
+
+#: admin/class-aso-admin.php:104
+msgid "Admin Sidebar Organizer needs your attention. Section configuration has not been supplied."
+msgstr ""
+
+#: admin/class-aso-admin.php:105
+msgid "Visit Settings for setup instructions."
+msgstr ""
+
+#: admin/templates/metabox-sidebar-options.php:7
+msgid "Move command palette to sidebar"
+msgstr ""
+
+#: admin/templates/metabox-sidebar-options.php:10
+msgid "Show WordPress’s command palette as Go to… at the top of the sidebar."
+msgstr ""
+
+#: admin/templates/metabox-sidebar-options.php:13
+msgid "This setting applies to all sites in this network."
+msgstr ""
+
+#: admin/templates/settings-page.php:6
+#: includes/class-admin-sidebar-organizer-wp-settings.php:42
+msgid "Admin Sidebar Organizer"
+msgstr ""
+
+#: admin/templates/settings-page.php:8
+msgid "Settings saved."
+msgstr ""
+
+#: admin/templates/settings-page.php:11
+msgid "No section configuration has been supplied. Section grouping is inactive. See Section Configuration below for setup instructions."
+msgstr ""
+
+#: admin/templates/settings-page.php:29
+msgid "Section Configuration"
+msgstr ""
+
+#: admin/templates/settings-page.php:31
+msgid "Section configuration has been supplied."
+msgstr ""
+
+#: admin/templates/settings-page.php:33
+msgid "Copy the bundled example to wp-content/mu-plugins/admin-sidebar-config.php and edit it to define your sections. Create the mu-plugins directory if needed."
+msgstr ""
+
+#: admin/templates/settings-page.php:34
+msgid "Read the configuration guide"
+msgstr ""
+
+#: admin/templates/settings-page.php:37
+msgid "View example configuration"
+msgstr ""
+
+#: admin/templates/settings-page.php:38
+msgid "Bundled example — not your installed configuration"
+msgstr ""
+
+#: includes/class-admin-sidebar-organizer-wp-menu-sections.php:62
+msgid "See More"
+msgstr ""
+
+#: includes/class-admin-sidebar-organizer-wp-settings.php:43
+msgid "Sidebar Organizer"
+msgstr ""
+
+#: includes/class-admin-sidebar-organizer-wp-settings.php:61
+msgid "You do not have permission to manage these settings."
+msgstr ""
+
+#: includes/class-admin-sidebar-organizer-wp-settings.php:79
+msgid "Sidebar Options"
+msgstr ""
+
+#: includes/class-admin-sidebar-organizer-wp-settings.php:80
+#: includes/class-admin-sidebar-organizer-wp-settings.php:109
+msgid "Save Settings"
+msgstr ""
+
+#: admin/js/menu-search.js:26
+msgid "Go to…"
+msgstr ""
+
+#. translators: %s: platform-specific keyboard shortcut.
+#: admin/js/menu-search.js:30
+msgid "Open command palette (%s)"
+msgstr ""

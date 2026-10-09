@@ -1,0 +1,98 @@
+/* Slate surfaces; native WordPress theme accent with optional scheme overrides. */
+body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle {
+	color: #f0f0f1;
+	background-color: #353b41;
+}
+
+body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle:hover,
+body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle:focus-visible {
+	color: var(--aso-sidebar-hover-color, #fff);
+	background-color: var(--aso-sidebar-hover-background, var(--wp-admin-theme-color, #2271b1));
+}
+
+/* Preserve native menu siblings, widths, colors, and submenu positioning. */
+#adminmenu .aso-sidebar__heading {
+	margin-block-start: 4px;
+}
+
+#adminmenu .aso-sidebar__heading--after-standalone {
+	margin-block-start: 10px;
+	padding-block-start: 8px;
+	border-block-start: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#adminmenu .aso-sidebar__toggle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 8px 12px;
+	min-height: 36px;
+	box-sizing: border-box;
+	border: 0;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: 0.06em;
+	text-align: start;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+#adminmenu .aso-sidebar__label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+#adminmenu .aso-sidebar__label .dashicons {
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+}
+
+#adminmenu .aso-sidebar__toggle::after {
+	content: '\203A';
+	font-size: 18px;
+	line-height: 1;
+}
+
+#adminmenu .aso-sidebar__toggle[aria-expanded="true"]::after {
+	transform: rotate(90deg);
+}
+
+#adminmenu .aso-sidebar__toggle:focus-visible {
+	outline: 2px solid var(--aso-sidebar-hover-color, #fff);
+	outline-offset: -3px;
+}
+
+#adminmenu .aso-sidebar__item--collapsed,
+#adminmenu.aso-sidebar > .wp-menu-separator,
+.folded #adminmenu .aso-sidebar__heading {
+	display: none;
+}
+
+@media (min-width: 783px) and (max-width: 960px) {
+	.auto-fold #adminmenu .aso-sidebar__heading {
+		display: none;
+	}
+}
+
+/* Keep the native expand control reachable while the long icon rail scrolls. */
+@media (min-width: 783px) {
+	#adminmenu.aso-sidebar--narrow {
+		padding-block-end: 46px;
+	}
+
+	#adminmenu.aso-sidebar--narrow #collapse-menu {
+		position: fixed;
+		inset-block-end: 0;
+		inset-inline-start: 0;
+		width: 36px;
+		margin: 0;
+		padding-block-start: 12px;
+		background: inherit;
+		z-index: 10000;
+	}
+}
