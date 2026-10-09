@@ -7,7 +7,7 @@
  * Reference: civicrm-admin-utilities/includes/civicrm-admin-utilities-multisite.php.
  *
  * @package Admin_Sidebar_Organizer_Wp
- * @since 0.1-alpha
+ * @since 0.1
  */
 
 defined( 'ABSPATH' ) || exit;

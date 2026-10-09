@@ -20,7 +20,7 @@
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
  * @link       https://civicopilot.com
- * @since      0.1-alpha
+ * @since      0.1
  *
  * @package    Admin_Sidebar_Organizer_Wp
  */

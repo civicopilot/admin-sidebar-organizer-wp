@@ -6,7 +6,7 @@
  * Loads and registers admin sidebar, settings, and translation features.
  *
  * @link       https://civicopilot.com
- * @since      0.1-alpha
+ * @since      0.1
  *
  * @package    Admin_Sidebar_Organizer_Wp
  * @subpackage Admin_Sidebar_Organizer_Wp/includes
@@ -20,7 +20,7 @@
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      0.1-alpha
+ * @since      0.1
  * @package    Admin_Sidebar_Organizer_Wp
  * @subpackage Admin_Sidebar_Organizer_Wp/includes
  * @author     Andy Burns <andy@civicopilot.com>
@@ -31,7 +31,7 @@ class Admin_Sidebar_Organizer_Wp {
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @access   protected
 	 * @var      Admin_Sidebar_Organizer_Wp_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
@@ -40,7 +40,7 @@ class Admin_Sidebar_Organizer_Wp {
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
@@ -49,7 +49,7 @@ class Admin_Sidebar_Organizer_Wp {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
@@ -61,13 +61,13 @@ class Admin_Sidebar_Organizer_Wp {
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
 	 * Load the dependencies, define the locale, and set the hooks for the admin area.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 */
 	public function __construct() {
 		if ( defined( 'ADMIN_SIDEBAR_ORGANIZER_WP_VERSION' ) ) {
 			$this->version = ADMIN_SIDEBAR_ORGANIZER_WP_VERSION;
 		} else {
-			$this->version = '0.1-alpha';
+			$this->version = '0.1';
 		}
 		$this->plugin_name = 'admin-sidebar-organizer-wp';
 
@@ -89,7 +89,7 @@ class Admin_Sidebar_Organizer_Wp {
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @access   private
 	 */
 	private function load_dependencies() {
@@ -124,7 +124,7 @@ class Admin_Sidebar_Organizer_Wp {
 	 * Uses the Admin_Sidebar_Organizer_Wp_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @access   private
 	 */
 	private function set_locale() {
@@ -139,7 +139,7 @@ class Admin_Sidebar_Organizer_Wp {
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
@@ -165,7 +165,7 @@ class Admin_Sidebar_Organizer_Wp {
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 */
 	public function run() {
 		$this->loader->run();
@@ -175,7 +175,7 @@ class Admin_Sidebar_Organizer_Wp {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     0.1-alpha
+	 * @since     0.1
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
@@ -185,7 +185,7 @@ class Admin_Sidebar_Organizer_Wp {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     0.1-alpha
+	 * @since     0.1
 	 * @return    Admin_Sidebar_Organizer_Wp_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
@@ -195,7 +195,7 @@ class Admin_Sidebar_Organizer_Wp {
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     0.1-alpha
+	 * @since     0.1
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {

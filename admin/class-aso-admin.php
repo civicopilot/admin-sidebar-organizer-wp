@@ -4,7 +4,7 @@
  * The admin-specific functionality of the plugin.
  *
  * @link       https://civicopilot.com
- * @since      0.1-alpha
+ * @since      0.1
  *
  * @package    Admin_Sidebar_Organizer_Wp
  * @subpackage Admin_Sidebar_Organizer_Wp/admin
@@ -24,7 +24,7 @@ class ASO_Admin {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -36,7 +36,7 @@ class ASO_Admin {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version           The plugin release version.
 	 */
@@ -50,7 +50,7 @@ class ASO_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 */
 	public function enqueue_styles() {
 		if ( is_blog_admin() && ( Admin_Sidebar_Organizer_Wp_Settings::wp_dashboard_flyout() ||
@@ -66,7 +66,7 @@ class ASO_Admin {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    0.1-alpha
+	 * @since    0.1
 	 */
 	public function enqueue_scripts() {
 		if ( ! Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ) {
