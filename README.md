@@ -1,6 +1,6 @@
 # Admin Sidebar Organizer for WP
 
-**Status: 0.1-alpha.** This is an early release undergoing testing.
+**Status: alpha.** This is an early release undergoing testing.
 
 Organize the WordPress admin sidebar into configurable, collapsible sections while preserving native menu items and user permissions. Configure once for an installation using a small MU-plugin. Works on multisite.
 

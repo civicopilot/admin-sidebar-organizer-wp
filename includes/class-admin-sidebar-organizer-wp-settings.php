@@ -23,15 +23,15 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 	}
 
 	/** Opt-in Dashboard flyout presentation; native behavior is the default. */
-	public static function wp_dashboard_flyout_items() {
+	public static function wp_dashboard_flyout() {
 		$settings = is_multisite() ? get_network_option( null, self::OPTION, array() ) : get_option( self::OPTION, array() );
-		return is_array( $settings ) && ! empty( $settings['wp_dashboard_flyout_items'] );
+		return is_array( $settings ) && ! empty( $settings['wp_dashboard_flyout'] );
 	}
 
 	/** Opt-in CiviCRM flyout presentation. */
-	public static function civicrm_dashboard_flyout_items() {
+	public static function civicrm_menu_flyout() {
 		$settings = is_multisite() ? get_network_option( null, self::OPTION, array() ) : get_option( self::OPTION, array() );
-		return is_array( $settings ) && ! empty( $settings['civicrm_dashboard_flyout_items'] );
+		return is_array( $settings ) && ! empty( $settings['civicrm_menu_flyout'] );
 	}
 
 	/** Match network/site settings permissions without allowing subsite overrides. */
@@ -78,9 +78,9 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 			$settings = is_multisite() ? get_network_option( null, self::OPTION, array() ) : get_option( self::OPTION, array() );
 			$settings = is_array( $settings ) ? $settings : array();
 			$settings['move_command_palette'] = $enabled;
-			$settings['wp_dashboard_flyout_items'] = isset( $_POST['wp_dashboard_flyout_items'] ) && '1' === wp_unslash( $_POST['wp_dashboard_flyout_items'] );
+			$settings['wp_dashboard_flyout'] = isset( $_POST['wp_dashboard_flyout'] ) && '1' === wp_unslash( $_POST['wp_dashboard_flyout'] );
 			if ( function_exists( 'civi_wp' ) ) {
-				$settings['civicrm_dashboard_flyout_items'] = isset( $_POST['civicrm_dashboard_flyout_items'] ) && '1' === wp_unslash( $_POST['civicrm_dashboard_flyout_items'] );
+				$settings['civicrm_menu_flyout'] = isset( $_POST['civicrm_menu_flyout'] ) && '1' === wp_unslash( $_POST['civicrm_menu_flyout'] );
 			}
 			if ( is_multisite() ) {
 				update_network_option( null, self::OPTION, $settings );
@@ -117,9 +117,9 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 	/** Prepare sidebar options for their presentation template. */
 	public function render_options() {
 		$move_command_palette = self::move_command_palette();
-		$wp_dashboard_flyout_items = self::wp_dashboard_flyout_items();
+		$wp_dashboard_flyout = self::wp_dashboard_flyout();
 		$civicrm_active = function_exists( 'civi_wp' );
-		$civicrm_dashboard_flyout_items = self::civicrm_dashboard_flyout_items();
+		$civicrm_menu_flyout = self::civicrm_menu_flyout();
 		include dirname( __DIR__ ) . '/admin/templates/metabox-sidebar-options.php';
 	}
 
