@@ -2,6 +2,7 @@
  * Network-configured sections over native WordPress menu siblings.
  * Native menu parents and submenus remain intact.
  */
+/* global jQuery */
 window.asoWpInitMenuSections = function () {
 	'use strict';
 	const data = window.asoWpMenuSections;
@@ -112,6 +113,10 @@ window.asoWpInitMenuSections = function () {
 		controls.forEach( ( paint ) => paint() );
 	};
 	update();
+	// Refresh core's cached dimensions when grouping or late assets change the menu height.
+	new ResizeObserver( () => {
+		jQuery( document ).trigger( 'wp-pin-menu' );
+	} ).observe( document.getElementById( 'adminmenuwrap' ) );
 	window.addEventListener( 'resize', update );
 	new MutationObserver( update ).observe( document.body, { attributes: true, attributeFilter: [ 'class' ] } );
 };

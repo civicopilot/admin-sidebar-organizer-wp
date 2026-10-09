@@ -71,7 +71,7 @@ class ASO_Admin {
 		if ( ! Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ) {
 			return;
 		}
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/admin-sidebar-organizer-wp-admin.js', array(), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/admin-sidebar-organizer-wp-admin.js', array( 'jquery' ), $this->version, false );
 	}
 
 	/** Relocate the native command palette when WordPress provides it. */
