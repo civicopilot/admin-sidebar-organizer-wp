@@ -2,9 +2,7 @@
 /**
  * Meta-box settings for Admin Sidebar Organizer for WP.
  *
- * Follows CiviCRM Admin Utilities' network settings pattern: add_submenu_page,
- * load-page save routing, and native meta boxes. No CiviCRM dependency.
- * Reference: civicrm-admin-utilities/includes/civicrm-admin-utilities-multisite.php.
+ * Uses a WordPress submenu page, load-page save routing, and native meta boxes.
  *
  * @package Admin_Sidebar_Organizer_Wp
  * @since 0.1
@@ -16,7 +14,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 	const OPTION = 'aso_wp_settings';
 	private $page_hook = '';
 
-	/** Read shared settings, defaulting to the existing palette relocation behavior. */
+	/** Read the shared command-palette relocation setting, enabled by default. */
 	public static function move_command_palette() {
 		$settings = is_multisite() ? get_network_option( null, self::OPTION, array() ) : get_option( self::OPTION, array() );
 		return ! is_array( $settings ) || ! array_key_exists( 'move_command_palette', $settings ) || ! empty( $settings['move_command_palette'] );
@@ -35,7 +33,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 	}
 
 	/** Match network/site settings permissions without allowing subsite overrides. */
-	public static function can_manage() {
+	public static function can_manage_settings() {
 		return is_multisite()
 			? is_super_admin() && current_user_can( 'manage_network_options' )
 			: current_user_can( 'manage_options' );
@@ -46,7 +44,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 		if ( is_multisite() && ! is_network_admin() ) {
 			return;
 		}
-		if ( ! self::can_manage() ) {
+		if ( ! self::can_manage_settings() ) {
 			return;
 		}
 		$this->page_hook = add_submenu_page(
@@ -69,7 +67,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 
 	/** Route saves before output and register native meta-box controls. */
 	public function load_page() {
-		if ( ! self::can_manage() ) {
+		if ( ! self::can_manage_settings() ) {
 			wp_die( esc_html__( 'You do not have permission to manage these settings.', 'admin-sidebar-organizer-wp' ) );
 		}
 		if ( 'POST' === ( $_SERVER['REQUEST_METHOD'] ?? '' ) ) {
@@ -100,7 +98,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 
 	/** Render a self-posting form using native WordPress postbox containers. */
 	public function render_page() {
-		if ( ! self::can_manage() ) {
+		if ( ! self::can_manage_settings() ) {
 			return;
 		}
 		$page_hook = $this->page_hook;

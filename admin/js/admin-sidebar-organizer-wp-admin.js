@@ -1,5 +1,5 @@
 /**
- * Network-configured sections over native WordPress menu siblings.
+ * Configured sections over native WordPress menu siblings.
  * Native menu parents and submenus remain intact.
  */
 /* global jQuery */
@@ -24,17 +24,17 @@ window.asoWpInitMenuSections = function () {
 		...item,
 		node: document.getElementById( item.id ),
 	} ) ).filter( ( item ) => item.node && item.node.parentElement === menu );
-	const claimed = new Set();
-	const excluded = available.filter( ( item ) => item.slugs.some( ( slug ) => data.excluded.includes( slug ) ) );
-	excluded.forEach( ( item ) => claimed.add( item.id ) );
+	const assignedItemIds = new Set();
+	const standalone = available.filter( ( item ) => item.slugs.some( ( slug ) => data.standalone.includes( slug ) ) );
+	standalone.forEach( ( item ) => assignedItemIds.add( item.id ) );
 	const sections = [];
 	Object.entries( data.sections ).forEach( ( [ id, section ] ) => {
 		const items = [];
 		section.items.forEach( ( slug ) => {
 			available.forEach( ( item ) => {
-				if ( ! claimed.has( item.id ) && item.slugs.includes( slug ) ) {
+				if ( ! assignedItemIds.has( item.id ) && item.slugs.includes( slug ) ) {
 					items.push( item );
-					claimed.add( item.id );
+					assignedItemIds.add( item.id );
 				}
 			} );
 		} );
@@ -42,21 +42,21 @@ window.asoWpInitMenuSections = function () {
 			sections.push( { id, label: section.label, icon: section.icon, items } );
 		}
 	} );
-	const other = available.filter( ( item ) => ! claimed.has( item.id ) );
-	if ( other.length ) {
-		sections.push( { id: 'other', label: data.other, icon: 'dashicons-category', items: other } );
+	const unassignedItems = available.filter( ( item ) => ! assignedItemIds.has( item.id ) );
+	if ( unassignedItems.length ) {
+		sections.push( { id: 'other', label: data.other, icon: 'dashicons-category', items: unassignedItems } );
 	}
 	// Unmodelled DOM additions are left untouched; no links are manufactured.
 	const anchor = document.getElementById( 'collapse-menu' );
-	excluded.forEach( ( item ) => menu.insertBefore( item.node, anchor ) );
+	standalone.forEach( ( item ) => menu.insertBefore( item.node, anchor ) );
 	const narrow = window.matchMedia( '(min-width: 783px) and (max-width: 960px)' );
-	const controls = [];
+	const sectionRenderers = [];
 	const isNarrow = () => document.body.classList.contains( 'folded' ) ||
 		( narrow.matches && document.body.classList.contains( 'auto-fold' ) );
 	sections.forEach( ( section, index ) => {
 		const heading = document.createElement( 'li' );
 		heading.className = 'aso-sidebar__heading';
-		if ( index === 0 && excluded.length ) {
+		if ( index === 0 && standalone.length ) {
 			heading.classList.add( 'aso-sidebar__heading--after-standalone' );
 		}
 		const button = document.createElement( 'button' );
@@ -99,7 +99,7 @@ window.asoWpInitMenuSections = function () {
 			}
 			paint();
 		} );
-		controls.push( paint );
+		sectionRenderers.push( paint );
 	} );
 	menu.classList.add( 'aso-sidebar' );
 	let wasNarrow;
@@ -110,7 +110,7 @@ window.asoWpInitMenuSections = function () {
 		}
 		wasNarrow = narrowState;
 		menu.classList.toggle( 'aso-sidebar--narrow', narrowState );
-		controls.forEach( ( paint ) => paint() );
+		sectionRenderers.forEach( ( paint ) => paint() );
 	};
 	update();
 	// Refresh core's cached dimensions when grouping or late assets change the menu height.

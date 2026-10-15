@@ -34,8 +34,8 @@ function aso_wp_config_sections( $sections ) {
 add_filter( 'admin_sidebar_organizer_wp/admin_menu_sections', 'aso_wp_config_sections' );
 
 /** Keep Dashboard standalone above the sections. */
-function aso_wp_config_excluded( $excluded ) {
-	$excluded[] = 'index.php';
-	return $excluded;
+function aso_wp_config_standalone( $standalone ) {
+	$standalone[] = 'index.php';
+	return $standalone;
 }
-add_filter( 'admin_sidebar_organizer_wp/admin_menu_excluded', 'aso_wp_config_excluded' );
+add_filter( 'admin_sidebar_organizer_wp/admin_menu_standalone', 'aso_wp_config_standalone' );
