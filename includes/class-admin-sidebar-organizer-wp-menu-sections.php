@@ -27,7 +27,7 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 	 * Publish only items left after core and plugin filtering during admin_head.
 	 * Menu hook IDs match the IDs emitted by WordPress's menu-header.php.
 	 */
-	public function output_data() {
+	public function output_menu_data() {
 		global $menu, $_wp_real_parent_file;
 
 		$sections = self::get_sections();

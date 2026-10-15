@@ -149,7 +149,7 @@ class Admin_Sidebar_Organizer_Wp {
 		$this->loader->add_action( 'network_admin_menu', $settings, 'admin_menu' );
 
 		$menu_sections = new Admin_Sidebar_Organizer_Wp_Menu_Sections();
-		$this->loader->add_action( 'adminmenu', $menu_sections, 'output_data', 20 );
+		$this->loader->add_action( 'adminmenu', $menu_sections, 'output_menu_data', 20 );
 
 		$plugin_admin = new ASO_Admin( $this->get_plugin_name(), $this->get_version() );
 
@@ -158,7 +158,7 @@ class Admin_Sidebar_Organizer_Wp {
 		$this->loader->add_filter( 'admin_body_class', $plugin_admin, 'body_class' );
 		$this->loader->add_action( 'admin_notices', $plugin_admin, 'configuration_notice' );
 		$this->loader->add_action( 'network_admin_notices', $plugin_admin, 'configuration_notice' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_menu_search', 20 );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_command_palette', 20 );
 
 	}
 

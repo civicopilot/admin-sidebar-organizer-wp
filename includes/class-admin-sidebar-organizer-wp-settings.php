@@ -33,7 +33,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 	}
 
 	/** Match network/site settings permissions without allowing subsite overrides. */
-	public static function can_manage() {
+	public static function can_manage_settings() {
 		return is_multisite()
 			? is_super_admin() && current_user_can( 'manage_network_options' )
 			: current_user_can( 'manage_options' );
@@ -44,7 +44,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 		if ( is_multisite() && ! is_network_admin() ) {
 			return;
 		}
-		if ( ! self::can_manage() ) {
+		if ( ! self::can_manage_settings() ) {
 			return;
 		}
 		$this->page_hook = add_submenu_page(
@@ -67,7 +67,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 
 	/** Route saves before output and register native meta-box controls. */
 	public function load_page() {
-		if ( ! self::can_manage() ) {
+		if ( ! self::can_manage_settings() ) {
 			wp_die( esc_html__( 'You do not have permission to manage these settings.', 'admin-sidebar-organizer-wp' ) );
 		}
 		if ( 'POST' === ( $_SERVER['REQUEST_METHOD'] ?? '' ) ) {
@@ -98,7 +98,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 
 	/** Render a self-posting form using native WordPress postbox containers. */
 	public function render_page() {
-		if ( ! self::can_manage() ) {
+		if ( ! self::can_manage_settings() ) {
 			return;
 		}
 		$page_hook = $this->page_hook;

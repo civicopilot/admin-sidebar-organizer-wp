@@ -76,7 +76,7 @@ class ASO_Admin {
 	}
 
 	/** Relocate the native command palette when WordPress provides it. */
-	public function enqueue_menu_search() {
+	public function enqueue_command_palette() {
 		if ( ! Admin_Sidebar_Organizer_Wp_Settings::move_command_palette() || ! is_blog_admin() || ! wp_script_is( 'wp-core-commands', 'enqueued' ) ) {
 			return;
 		}
@@ -92,7 +92,7 @@ class ASO_Admin {
 
 	/** Show the setup reminder outside Settings, only where it can be resolved. */
 	public function configuration_notice() {
-		if ( ! Admin_Sidebar_Organizer_Wp_Settings::can_manage() || is_user_admin() || ( is_multisite() && ! is_network_admin() ) ) {
+		if ( ! Admin_Sidebar_Organizer_Wp_Settings::can_manage_settings() || is_user_admin() || ( is_multisite() && ! is_network_admin() ) ) {
 			return;
 		}
 		if ( Admin_Sidebar_Organizer_Wp_Menu_Sections::has_configuration() ) {
