@@ -56,14 +56,14 @@ Add this to the same configuration file:
 
 ```php
 /** Keep Dashboard standalone above the sections. */
-function aso_wp_config_excluded( $excluded ) {
-	$excluded[] = 'index.php';
-	return $excluded;
+function aso_wp_config_standalone( $standalone ) {
+	$standalone[] = 'index.php';
+	return $standalone;
 }
-add_filter( 'admin_sidebar_organizer_wp/admin_menu_excluded', 'aso_wp_config_excluded' );
+add_filter( 'admin_sidebar_organizer_wp/admin_menu_standalone', 'aso_wp_config_standalone' );
 ```
 
-The exclusion filter keeps matching items in their native relative order above the sections. Unassigned items appear under **See More** in their native relative order. An item listed in multiple sections belongs to the first matching section; please list each item once.
+The standalone filter keeps matching items in their native relative order above the sections. Unassigned items appear under **See More** in their native relative order. An item listed in multiple sections belongs to the first matching section; please list each item once.
 
 ## Initial section state
 

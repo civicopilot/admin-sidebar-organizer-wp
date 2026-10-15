@@ -15,7 +15,7 @@ or directory is required. Keep customizations outside the organizer.
 | Section names and icons | Edit `label` and `icon` in your configuration MU-plugin; no CSS needed. |
 | Section order | Reorder the section entries in the returned array. |
 | Item order or membership | Reorder or move menu slugs in each section's `items` array. |
-| Standalone items | Add or remove slugs in `aso_wp_config_excluded()`. |
+| Standalone items | Add or remove slugs in `aso_wp_config_standalone()`. |
 | Colors, spacing, or typography | Add admin CSS through your preferred plugin or color scheme. |
 | Command-palette placement | Use Settings → Sidebar Organizer; Network Admin on multisite. |
 
@@ -35,7 +35,7 @@ To add a section, add an entry like this to your MU-plugin’s section array:
 ```
 
 Use the plugin's menu slug in `items`, and remove it from other sections or
-standalone exclusions. Unassigned menus appear under **See More**.
+standalone items. Unassigned menus appear under **See More**.
 
 ## Styling and accessibility
 

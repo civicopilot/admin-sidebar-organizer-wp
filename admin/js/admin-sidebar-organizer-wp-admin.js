@@ -25,8 +25,8 @@ window.asoWpInitMenuSections = function () {
 		node: document.getElementById( item.id ),
 	} ) ).filter( ( item ) => item.node && item.node.parentElement === menu );
 	const claimed = new Set();
-	const excluded = available.filter( ( item ) => item.slugs.some( ( slug ) => data.excluded.includes( slug ) ) );
-	excluded.forEach( ( item ) => claimed.add( item.id ) );
+	const standalone = available.filter( ( item ) => item.slugs.some( ( slug ) => data.standalone.includes( slug ) ) );
+	standalone.forEach( ( item ) => claimed.add( item.id ) );
 	const sections = [];
 	Object.entries( data.sections ).forEach( ( [ id, section ] ) => {
 		const items = [];
@@ -48,7 +48,7 @@ window.asoWpInitMenuSections = function () {
 	}
 	// Unmodelled DOM additions are left untouched; no links are manufactured.
 	const anchor = document.getElementById( 'collapse-menu' );
-	excluded.forEach( ( item ) => menu.insertBefore( item.node, anchor ) );
+	standalone.forEach( ( item ) => menu.insertBefore( item.node, anchor ) );
 	const narrow = window.matchMedia( '(min-width: 783px) and (max-width: 960px)' );
 	const controls = [];
 	const isNarrow = () => document.body.classList.contains( 'folded' ) ||
@@ -56,7 +56,7 @@ window.asoWpInitMenuSections = function () {
 	sections.forEach( ( section, index ) => {
 		const heading = document.createElement( 'li' );
 		heading.className = 'aso-sidebar__heading';
-		if ( index === 0 && excluded.length ) {
+		if ( index === 0 && standalone.length ) {
 			heading.classList.add( 'aso-sidebar__heading--after-standalone' );
 		}
 		const button = document.createElement( 'button' );

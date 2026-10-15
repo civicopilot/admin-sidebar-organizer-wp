@@ -56,12 +56,12 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 			);
 		}
 		$data = array(
-			'sections' => $sections,
-			'items'    => $items,
-			'excluded' => apply_filters( 'admin_sidebar_organizer_wp/admin_menu_excluded', array() ),
-			'other'    => __( 'See More', 'admin-sidebar-organizer-wp' ),
-			'site'     => get_current_blog_id(),
-			'user'     => get_current_user_id(),
+			'sections'   => $sections,
+			'items'      => $items,
+			'standalone' => apply_filters( 'admin_sidebar_organizer_wp/admin_menu_standalone', array() ),
+			'other'      => __( 'See More', 'admin-sidebar-organizer-wp' ),
+			'site'       => get_current_blog_id(),
+			'user'       => get_current_user_id(),
 		);
 		wp_print_inline_script_tag(
 			'window.asoWpMenuSections = ' . wp_json_encode( $data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ) . '; if (window.asoWpInitMenuSections) { window.asoWpInitMenuSections(); }'
