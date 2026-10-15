@@ -1,5 +1,5 @@
 /**
- * Network-configured sections over native WordPress menu siblings.
+ * Configured sections over native WordPress menu siblings.
  * Native menu parents and submenus remain intact.
  */
 /* global jQuery */

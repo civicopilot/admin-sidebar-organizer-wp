@@ -15,7 +15,7 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 		return false !== has_filter( 'admin_sidebar_organizer_wp/admin_menu_sections' );
 	}
 
-	/** Retrieve network-supplied sections; an empty configuration disables grouping. */
+	/** Retrieve configured sections; an empty configuration disables grouping. */
 	public static function get_sections() {
 		if ( is_network_admin() || is_user_admin() ) {
 			return array();
@@ -24,7 +24,7 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 	}
 
 	/**
-	 * Publish only items left after core and User Role Editor's admin_head filtering.
+	 * Publish only items left after core and plugin filtering during admin_head.
 	 * Menu hook IDs match the IDs emitted by WordPress's menu-header.php.
 	 */
 	public function output_data() {
@@ -40,7 +40,7 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 				continue;
 			}
 			$aliases = array( $item[2] );
-			// URE can replace the destination while retaining the original hook ID.
+			// Plugins can replace the destination while retaining the original hook ID.
 			if ( 0 === strpos( $item[5], 'toplevel_page_' ) ) {
 				$aliases[] = substr( $item[5], strlen( 'toplevel_page_' ) );
 			}

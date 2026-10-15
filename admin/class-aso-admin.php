@@ -111,7 +111,7 @@ class ASO_Admin {
 		<?php
 	}
 
-	/** Scope portable colors so network-specific schemes can override them. */
+	/** Scope portable colors so custom color schemes can override them. */
 	public function body_class( $classes ) {
 		if ( Admin_Sidebar_Organizer_Wp_Menu_Sections::get_sections() ) {
 			$classes .= ' aso-sidebar-enabled';

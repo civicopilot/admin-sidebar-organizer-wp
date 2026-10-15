@@ -71,4 +71,4 @@ Sections start collapsed in a new browser tab, except the section containing the
 
 ## Command Palette
 
-Command-palette relocation can be moved to the sidebar on the Sidebar Organizer settings page.
+Enable or disable command-palette relocation on the Sidebar Organizer settings page.

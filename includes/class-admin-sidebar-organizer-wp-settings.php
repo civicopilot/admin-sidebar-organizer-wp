@@ -2,9 +2,7 @@
 /**
  * Meta-box settings for Admin Sidebar Organizer for WP.
  *
- * Follows CiviCRM Admin Utilities' network settings pattern: add_submenu_page,
- * load-page save routing, and native meta boxes. No CiviCRM dependency.
- * Reference: civicrm-admin-utilities/includes/civicrm-admin-utilities-multisite.php.
+ * Uses a WordPress submenu page, load-page save routing, and native meta boxes.
  *
  * @package Admin_Sidebar_Organizer_Wp
  * @since 0.1
@@ -16,7 +14,7 @@ class Admin_Sidebar_Organizer_Wp_Settings {
 	const OPTION = 'aso_wp_settings';
 	private $page_hook = '';
 
-	/** Read shared settings, defaulting to the existing palette relocation behavior. */
+	/** Read the shared command-palette relocation setting, enabled by default. */
 	public static function move_command_palette() {
 		$settings = is_multisite() ? get_network_option( null, self::OPTION, array() ) : get_option( self::OPTION, array() );
 		return ! is_array( $settings ) || ! array_key_exists( 'move_command_palette', $settings ) || ! empty( $settings['move_command_palette'] );

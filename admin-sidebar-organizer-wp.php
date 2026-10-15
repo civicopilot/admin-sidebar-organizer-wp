@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
+ * Current plugin version.
  * Update this value when releasing a new version.
  */
 define( 'ADMIN_SIDEBAR_ORGANIZER_WP_VERSION', '0.1' );
