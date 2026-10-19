@@ -67,7 +67,9 @@ The standalone filter keeps matching items in their native relative order above 
 
 ## Initial section state
 
-Sections start collapsed in a new browser tab, except the section containing the current page. Subsequent toggles are remembered per site/user for that tab. 
+Only one section opens at a time; click it again to close it. Page loads open the current page’s section, collapse all sections for standalone pages, or restore the saved selection otherwise. State is remembered per site/user and browser tab. 
+
+**Go to…** leaves sections unchanged.
 
 ## Command Palette
 
