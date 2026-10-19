@@ -12,7 +12,7 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 
 	/** Detect a configuration callback independently of screen and section contents. */
 	public static function has_configuration() {
-		return false !== has_filter( 'admin_sidebar_organizer_wp/admin_menu_sections' );
+		return false !== has_filter( 'aso_wp/admin_menu_sections' );
 	}
 
 	/** Retrieve configured sections; an empty configuration disables grouping. */
@@ -20,7 +20,7 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 		if ( is_network_admin() || is_user_admin() ) {
 			return array();
 		}
-		return apply_filters( 'admin_sidebar_organizer_wp/admin_menu_sections', array() );
+		return apply_filters( 'aso_wp/admin_menu_sections', array() );
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Admin_Sidebar_Organizer_Wp_Menu_Sections {
 		$data = array(
 			'sections'   => $sections,
 			'items'      => $items,
-			'standalone' => apply_filters( 'admin_sidebar_organizer_wp/admin_menu_standalone', array() ),
+			'standalone' => apply_filters( 'aso_wp/admin_menu_standalone', array() ),
 			'other'      => __( 'See More', 'admin-sidebar-organizer-wp' ),
 			'site'       => get_current_blog_id(),
 			'user'       => get_current_user_id(),
