@@ -6,8 +6,8 @@ defined( 'ABSPATH' ) || exit;
 <p class="description"><?php esc_html_e( 'These settings apply to all sites in this network.', 'admin-sidebar-organizer-wp' ); ?></p>
 <?php endif; ?>
 
-		<p><label for="aso-wp-move-command-palette">
-			<input type="checkbox" id="aso-wp-move-command-palette" name="move_command_palette" value="1" <?php checked( $move_command_palette ); ?> />
+		<p><label for="aso-move-command-palette">
+			<input type="checkbox" id="aso-move-command-palette" name="move_command_palette" value="1" <?php checked( $move_command_palette ); ?> />
 			<?php esc_html_e( 'Move command palette to sidebar', 'admin-sidebar-organizer-wp' ); ?>
 		</label></p>
 		<p class="description"><?php

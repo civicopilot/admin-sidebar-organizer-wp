@@ -1,4 +1,4 @@
-/* Opt-in presentation only; native menu markup, classes and handlers remain. */
+/* Flyout presentation; native menu markup, classes and handlers remain. */
 @media (min-width: 961px) {
 	body.aso-standalone-menu-flyout:not(.folded) #adminmenu .aso-sidebar__standalone.wp-has-current-submenu > .wp-submenu,
 	body.aso-section-menu-flyout:not(.folded) #adminmenu .aso-sidebar__item.wp-has-current-submenu > .wp-submenu {
@@ -19,11 +19,9 @@
 	body.aso-standalone-menu-flyout:not(.folded) #adminmenu .aso-sidebar__standalone.wp-has-current-submenu.opensub > .wp-submenu,
 	body.aso-standalone-menu-flyout:not(.folded) #adminmenu .aso-sidebar__standalone.wp-has-current-submenu:focus-within > .wp-submenu,
 	body.aso-standalone-menu-flyout:not(.folded) #adminmenu .aso-sidebar__standalone.wp-has-current-submenu > .wp-submenu.sub-open,
-	body.no-js.aso-standalone-menu-flyout:not(.folded) #adminmenu .aso-sidebar__standalone.wp-has-current-submenu:hover > .wp-submenu,
 	body.aso-section-menu-flyout:not(.folded) #adminmenu .aso-sidebar__item.wp-has-current-submenu.opensub > .wp-submenu,
 	body.aso-section-menu-flyout:not(.folded) #adminmenu .aso-sidebar__item.wp-has-current-submenu:focus-within > .wp-submenu,
-	body.aso-section-menu-flyout:not(.folded) #adminmenu .aso-sidebar__item.wp-has-current-submenu > .wp-submenu.sub-open,
-	body.no-js.aso-section-menu-flyout:not(.folded) #adminmenu .aso-sidebar__item.wp-has-current-submenu:hover > .wp-submenu {
+	body.aso-section-menu-flyout:not(.folded) #adminmenu .aso-sidebar__item.wp-has-current-submenu > .wp-submenu.sub-open {
 		top: 0;
 	}
 }
