@@ -1,12 +1,11 @@
 <?php
 /**
  * Plugin Name: Admin Sidebar Configuration
- * Description: Example central configuration for Admin Sidebar Organizer for WP.
+ * Description: Central configuration for Admin Sidebar Organizer for WP.
  *
  * Copy this file directly into wp-content/mu-plugins/admin-sidebar-config.php,
  * then edit section labels and menu slugs for your installation.
- * The organizer remains a regular plugin; network activate it on multisite.
- * This example is not loaded from the examples directory.
+ * 
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -31,11 +30,11 @@ function aso_wp_config_sections( $sections ) {
 		),
 	);
 }
-add_filter( 'admin_sidebar_organizer_wp/admin_menu_sections', 'aso_wp_config_sections' );
+add_filter( 'aso_wp/admin_menu_sections', 'aso_wp_config_sections' );
 
 /** Keep Dashboard standalone above the sections. */
 function aso_wp_config_standalone( $standalone ) {
 	$standalone[] = 'index.php';
 	return $standalone;
 }
-add_filter( 'admin_sidebar_organizer_wp/admin_menu_standalone', 'aso_wp_config_standalone' );
+add_filter( 'aso_wp/admin_menu_standalone', 'aso_wp_config_standalone' );

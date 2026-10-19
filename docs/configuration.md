@@ -11,7 +11,7 @@ Deactivating the organizer restores native navigation; the configuration file ca
 
 ## Define sections
 
-Use `admin_sidebar_organizer_wp/admin_menu_sections` to return an ordered map of section IDs. Each section contains:
+Use `aso_wp/admin_menu_sections` to return an ordered map of section IDs. Each section contains:
 
 | Key | Value |
 | --- | --- |
@@ -47,7 +47,7 @@ function aso_wp_config_sections( $sections ) {
 		),
 	);
 }
-add_filter( 'admin_sidebar_organizer_wp/admin_menu_sections', 'aso_wp_config_sections' );
+add_filter( 'aso_wp/admin_menu_sections', 'aso_wp_config_sections' );
 ```
 
 ## Define standalone items
@@ -60,7 +60,7 @@ function aso_wp_config_standalone( $standalone ) {
 	$standalone[] = 'index.php';
 	return $standalone;
 }
-add_filter( 'admin_sidebar_organizer_wp/admin_menu_standalone', 'aso_wp_config_standalone' );
+add_filter( 'aso_wp/admin_menu_standalone', 'aso_wp_config_standalone' );
 ```
 
 The standalone filter keeps matching items in their native relative order above the sections. Unassigned items appear under **See More** in their native relative order. An item listed in multiple sections belongs to the first matching section; please list each item once.
