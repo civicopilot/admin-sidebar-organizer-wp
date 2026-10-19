@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 class Admin_Sidebar_Organizer_Wp_Settings {
-	const OPTION = 'aso_wp_settings';
+	const OPTION = 'admin_sidebar_organizer_settings';
 	private $page_hook = '';
 
 	/** Read the shared command-palette relocation setting, enabled by default. */
