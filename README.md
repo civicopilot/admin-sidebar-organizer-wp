@@ -12,11 +12,11 @@ Organize the WordPress admin sidebar into configurable, collapsible sections whi
 - Omit empty sections and keep unassigned items visible under **See More**.
 - Keep selected destinations standalone above the sections.
 - Start sections collapsed in a new tab; automatically expand the section containing the current page.
-- Remember section toggles per site and user within the current browser tab.
+- Open one section at a time and remember the selection per site and user within the current browser tab.
 - Preserve the full native icon rail when the sidebar is collapsed.
 - Keep WordPress's native collapse control at the bottom of the menu; pin the expand control to the viewport bottom in collapsed desktop mode.
 - Move WordPress's existing command-palette trigger into a **Go to…** item when available. 
-- Optionally keep the WordPress Dashboard and CiviCRM submenus as flyouts.
+- Choose desktop submenu flyouts independently for standalone items and items within sections.
 
 ## Installation
 

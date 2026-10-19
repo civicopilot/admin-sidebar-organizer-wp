@@ -46,9 +46,19 @@ window.asoWpInitMenuSections = function () {
 	if ( unassignedItems.length ) {
 		sections.push( { id: 'other', label: data.other, icon: 'dashicons-category', items: unassignedItems } );
 	}
+	const isStandalonePage = standalone.some(
+		( item ) => item.node.matches( '.current, .wp-has-current-submenu' )
+	);
+	// Standalone pages start with all sections closed; otherwise prefer the current page's section.
+	let expandedSection = isStandalonePage ? null : sections.find( ( section ) => section.items.some(
+		( item ) => item.node.matches( '.current, .wp-has-current-submenu' )
+	) ) || sections.find( ( section ) => stored[ section.id ] === true ) || null;
 	// Unmodelled DOM additions are left untouched; no links are manufactured.
 	const anchor = document.getElementById( 'collapse-menu' );
-	standalone.forEach( ( item ) => menu.insertBefore( item.node, anchor ) );
+	standalone.forEach( ( item ) => {
+		item.node.classList.add( 'aso-sidebar__standalone' );
+		menu.insertBefore( item.node, anchor );
+	} );
 	const narrow = window.matchMedia( '(min-width: 783px) and (max-width: 960px)' );
 	const sectionRenderers = [];
 	const isNarrow = () => document.body.classList.contains( 'folded' ) ||
@@ -81,8 +91,8 @@ window.asoWpInitMenuSections = function () {
 			item.node.classList.add( 'aso-sidebar__item' );
 			menu.insertBefore( item.node, anchor );
 		} );
-		let expanded = section.items.some( ( item ) => item.node.matches( '.current, .wp-has-current-submenu' ) ) || stored[ section.id ] === true;
 		const paint = () => {
+			const expanded = expandedSection === section;
 			button.setAttribute( 'aria-expanded', String( expanded ) );
 			section.items.forEach( ( item ) => {
 				// Narrow mode retains WordPress's full icon rail and flyouts.
@@ -90,14 +100,14 @@ window.asoWpInitMenuSections = function () {
 			} );
 		};
 		button.addEventListener( 'click', () => {
-			expanded = ! expanded;
-			stored[ section.id ] = expanded;
+			expandedSection = expandedSection === section ? null : section;
+			stored = Object.fromEntries( sections.map( ( entry ) => [ entry.id, entry === expandedSection ] ) );
 			try {
 				sessionStorage.setItem( key, JSON.stringify( stored ) );
 			} catch ( error ) {
 				// Storage is optional; never prevent toggling.
 			}
-			paint();
+			sectionRenderers.forEach( ( render ) => render() );
 		} );
 		sectionRenderers.push( paint );
 	} );

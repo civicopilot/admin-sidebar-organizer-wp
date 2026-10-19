@@ -6,28 +6,26 @@ defined( 'ABSPATH' ) || exit;
 <p class="description"><?php esc_html_e( 'These settings apply to all sites in this network.', 'admin-sidebar-organizer-wp' ); ?></p>
 <?php endif; ?>
 
-		<p><label for="aso-wp-move-command-palette">
-			<input type="checkbox" id="aso-wp-move-command-palette" name="move_command_palette" value="1" <?php checked( $move_command_palette ); ?> />
+		<p><label for="aso-move-command-palette">
+			<input type="checkbox" id="aso-move-command-palette" name="move_command_palette" value="1" <?php checked( $move_command_palette ); ?> />
 			<?php esc_html_e( 'Move command palette to sidebar', 'admin-sidebar-organizer-wp' ); ?>
 		</label></p>
 		<p class="description"><?php
 			esc_html_e( 'Show WordPress’s command palette as Go to… at the top of the sidebar.', 'admin-sidebar-organizer-wp' );
 		?></p>
 
-<p><label for="aso-wp-dashboard-flyout">
-	<input type="checkbox" id="aso-wp-dashboard-flyout" name="wp_dashboard_flyout" value="1" <?php checked( $wp_dashboard_flyout ); ?> />
-	<?php esc_html_e( 'Use a flyout for the WordPress Dashboard submenu', 'admin-sidebar-organizer-wp' ); ?>
+<p><label for="aso-standalone-menu-flyout">
+	<input type="checkbox" id="aso-standalone-menu-flyout" name="standalone_menu_flyout" value="1" <?php checked( $standalone_menu_flyout ); ?> />
+	<?php esc_html_e( 'Use flyouts for standalone menu items', 'admin-sidebar-organizer-wp' ); ?>
 </label></p>
 <p class="description"><?php
-	esc_html_e( 'Experimental: show Home, Updates, and other Dashboard links in a flyout instead of expanding them inline while viewing the main WordPress Dashboard.', 'admin-sidebar-organizer-wp' );
+	esc_html_e( 'Show submenus as flyouts instead of inline on desktop.', 'admin-sidebar-organizer-wp' );
 ?></p>
 
-<?php if ( $civicrm_active ) : ?>
-<p><label for="aso-civicrm-dashboard-flyout">
-	<input type="checkbox" id="aso-civicrm-dashboard-flyout" name="civicrm_menu_flyout" value="1" <?php checked( $civicrm_menu_flyout ); ?> />
-	<?php esc_html_e( 'Use a flyout for the CiviCRM submenu', 'admin-sidebar-organizer-wp' ); ?>
+<p><label for="aso-section-menu-flyout">
+	<input type="checkbox" id="aso-section-menu-flyout" name="section_menu_flyout" value="1" <?php checked( $section_menu_flyout ); ?> />
+	<?php esc_html_e( 'Use flyouts for menu items within sections', 'admin-sidebar-organizer-wp' ); ?>
 </label></p>
 <p class="description"><?php
-	esc_html_e( 'Experimental: show CiviCRM and its integration links in a flyout instead of expanding them inline while viewing CiviCRM pages.', 'admin-sidebar-organizer-wp' );
+	esc_html_e( 'Show submenus as flyouts instead of inline on desktop for the most compact sidebar layout.', 'admin-sidebar-organizer-wp' );
 ?></p>
-<?php endif; ?>

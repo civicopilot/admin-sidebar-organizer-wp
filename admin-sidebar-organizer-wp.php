@@ -15,7 +15,7 @@
  * Plugin Name:       Admin Sidebar Organizer for WP
  * Plugin URI:        https://github.com/civicopilot/admin-sidebar-organizer-wp
  * Description:       Organizes the WordPress admin sidebar into configurable, collapsible sections. Supports centralized multisite configuration. Alpha release.
- * Version:           0.1.1
+ * Version:           0.1.2
  * Author:            Andy Burns
  * Author URI:        https://civicopilot.com/
  * License:           GPL-3.0-only
@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Current plugin version.
  * Update this value when releasing a new version.
  */
-define( 'ADMIN_SIDEBAR_ORGANIZER_WP_VERSION', '0.1.1' );
+define( 'ADMIN_SIDEBAR_ORGANIZER_WP_VERSION', '0.1.2' );
 
 /**
  * The code that runs during plugin activation.
