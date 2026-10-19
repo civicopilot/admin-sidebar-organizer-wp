@@ -74,3 +74,7 @@ Only one section opens at a time; click it again to close it. Page loads open th
 ## Command Palette
 
 Enable or disable command-palette relocation on the Sidebar Organizer settings page.
+
+## Submenu flyouts
+
+Configure submenu flyout behavior in Sidebar Organizer settings.

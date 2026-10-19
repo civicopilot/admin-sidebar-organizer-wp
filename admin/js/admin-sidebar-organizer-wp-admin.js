@@ -55,7 +55,10 @@ window.asoWpInitMenuSections = function () {
 	) ) || sections.find( ( section ) => stored[ section.id ] === true ) || null;
 	// Unmodelled DOM additions are left untouched; no links are manufactured.
 	const anchor = document.getElementById( 'collapse-menu' );
-	standalone.forEach( ( item ) => menu.insertBefore( item.node, anchor ) );
+	standalone.forEach( ( item ) => {
+		item.node.classList.add( 'aso-sidebar__standalone' );
+		menu.insertBefore( item.node, anchor );
+	} );
 	const narrow = window.matchMedia( '(min-width: 783px) and (max-width: 960px)' );
 	const sectionRenderers = [];
 	const isNarrow = () => document.body.classList.contains( 'folded' ) ||
