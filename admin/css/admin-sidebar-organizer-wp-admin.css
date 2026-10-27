@@ -1,11 +1,11 @@
 /* Slate surfaces; native WordPress theme accent with optional scheme overrides. */
-body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle {
+#adminmenu.aso-sidebar .aso-sidebar__toggle {
 	color: #f0f0f1;
 	background-color: #353b41;
 }
 
-body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle:hover,
-body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle:focus-visible {
+#adminmenu.aso-sidebar .aso-sidebar__toggle:hover,
+#adminmenu.aso-sidebar .aso-sidebar__toggle:focus-visible {
 	color: var(--aso-sidebar-hover-color, #fff);
 	background-color: var(--aso-sidebar-hover-background, var(--wp-admin-theme-color, #2271b1));
 }

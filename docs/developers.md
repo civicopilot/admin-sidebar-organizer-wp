@@ -3,12 +3,9 @@
 ## Customize your sidebar
 
 Change section labels, Dashicons, order, and menu assignments directly in
-`wp-content/mu-plugins/admin-sidebar-config.php`. These configuration changes do
-not require CSS.
+`wp-content/mu-plugins/admin-sidebar-config.php`.
 
-Styling means colors, spacing, font appearance, and icon size. Change these with
-admin CSS through your preferred plugin or color scheme; no specific CSS filename
-or directory is required. Keep customizations outside the organizer.
+Styling means colors, spacing, font appearance, and icon size. Change these with admin CSS through your preferred plugin or color scheme.
 
 | Want to change… | Where to change it |
 | --- | --- |
@@ -34,30 +31,28 @@ To add a section, add an entry like this to your MU-plugin’s section array:
 ),
 ```
 
-Use the plugin's menu slug in `items`, and remove it from other sections or
-standalone items. Unassigned menus appear under **See More**.
+Use the plugin's menu slug in `items`. Unassigned menus appear under **See More**.
 
 ## Styling and accessibility
 
 The organizer supplies slate section backgrounds and component layout styles. Hover and keyboard focus use WordPress’s `--wp-admin-theme-color`, with the standard blue fallback when that variable is unavailable.
 
-Custom schemes can override `--aso-sidebar-hover-background` and `--aso-sidebar-hover-color` on `body.aso-sidebar-enabled`.
+Custom schemes can override `--aso-sidebar-hover-background` and `--aso-sidebar-hover-color` on `#adminmenu.aso-sidebar`.
 
 ### Customize appearance with CSS
 
-Add these rules through a plugin that supports admin CSS, your own plugin, or an
-admin color scheme. Load overrides after the organizer's styles. If using
+Add these rules through your own plugin or an admin CSS plugin. Load overrides after the organizer's styles. If using
 `wp_enqueue_style()` on `admin_enqueue_scripts`, set `admin-sidebar-organizer-wp`
 as the stylesheet dependency. 
 
 ```css
-body.aso-sidebar-enabled {
+#adminmenu.aso-sidebar {
     --aso-sidebar-hover-background: #135e96;
     --aso-sidebar-hover-color: #fff;
 }
 
 /* Optional: change the resting section surface and label treatment. */
-body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle {
+#adminmenu.aso-sidebar .aso-sidebar__toggle {
     background-color: #253340;
     color: #fff;
     text-transform: none;
@@ -65,10 +60,7 @@ body.aso-sidebar-enabled #adminmenu .aso-sidebar__toggle {
 }
 ```
 
-The script adds `aso-sidebar` BEM classes to section controls and organized menu
-items, while preserving native WordPress classes and submenu markup. The
-`aso-sidebar-enabled` body class scopes the component. Inspect the rendered
-sidebar for specific selectors and keep overrides in your own admin CSS.
+The script adds `aso-sidebar` BEM classes to section controls and organized menu items. Inspect the rendered sidebar for specific selectors and keep overrides in your own admin CSS.
 
 ## Code layout
 
@@ -82,4 +74,5 @@ sidebar for specific selectors and keep overrides in your own admin CSS.
 | `admin/js/admin-sidebar-organizer-wp-admin.js` | Section grouping and collapse behavior. |
 | `admin/js/menu-search.js` | Native command-palette trigger relocation. |
 | `admin/css/admin-sidebar-organizer-wp-admin.css` | Component layout and default colors. |
+| `admin/css/menu-flyout.css` | Desktop submenu flyout styles. |
 | `docs/examples/admin-sidebar-config.php` | Portable configuration example; not loaded automatically. |
